@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Giver Chapters 1-12: Your Copy</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 460px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(25px, 5vw, 36px);
+    line-height: 1.2;
+    margin: 0 0 12px;
+    font-weight: 900;
+  }
+
+  .description {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 28px;
+  }
+
+  .red-button {
+    display: block;
+    width: 100%;
+    padding: 17px 20px;
+    border: 0;
+    border-radius: 10px;
+    background: #e52222;
+    color: white;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+  }
+
+  .red-button:hover {
+    background: #ff3636;
+    transform: translateY(-2px);
+  }
+
+  .red-button:active {
+    transform: scale(.98);
+  }
+
+  .screen {
+    display: none;
+  }
+
+  .screen.active {
+    display: block;
+  }
+
+  .name-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .name-button {
+    background: #171717;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 9px;
+    padding: 15px 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+  }
+
+  .name-button:hover {
+    background: #351313;
+    border-color: #e52222;
+  }
+
+  .welcome {
+    color: #ff3b3b;
+    font-size: clamp(26px, 6vw, 38px);
+    font-weight: 900;
+    margin: 20px 0 12px;
+    overflow-wrap: anywhere;
+  }
+
+  .exam-message {
+    color: #fff;
+    font-size: clamp(16px, 4vw, 20px);
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0 0 20px;
+  }
+
+  .small-text {
+    color: #888;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 20px;
+  }
+
+  .change-button {
+    margin-top: 15px;
+    background: transparent;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #aaa;
+    padding: 9px 13px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .change-button:hover {
+    color: white;
+    border-color: #e52222;
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <section id="homeScreen" class="screen active">
+    <h1>The Giver Chapters 1-12</h1>
+
+    <p class="description">
+      Your personal copy of The Giver study notes.
+    </p>
+
+    <button class="red-button" id="openButton">
+      The Giver Chapters 1-12: Your Copy
+    </button>
+
+    <p class="small-text">
+      Press the button to open your notes.
+    </p>
+  </section>
+
+  <section id="pickerScreen" class="screen">
+    <h1>Choose Your Copy</h1>
+
+    <p class="description">
+      Select your name to open your assigned notes.
+      Your choice will be remembered on this browser.
+    </p>
+
+    <div class="name-list" id="nameList"></div>
+
+    <button class="change-button" id="backButton">
+      Go Back
+    </button>
+  </section>
+
+  <section id="welcomeScreen" class="screen">
+    <div class="welcome" id="welcomeMessage">
+      Welcome!
+    </div>
+
+    <p class="exam-message">
+      Good luck on The Giver Chapters 1-12 Exam!
+    </p>
+
+    <p class="description">
+      Opening your personal study notes...
+    </p>
+  </section>
+
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  const STORAGE_KEY = "theGiverChapters1to12ChosenCopy_v1";
+
+  const students = {
+    "Sharvesh": {
+      url: "https://docs.google.com/document/d/11cJ6L2Gf40ibp6DmFZvf-2MpuFujn9Dt-Om8EwAkwg0/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+    },
+
+    "Tanuj": {
+      url: "https://docs.google.com/document/d/1AgUO3sRIUqt6OptDU8qDHBwrbplLZPrK9ba2p_WIwAU/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+    },
+
+    "Arooban": {
+      url: "https://docs.google.com/document/d/1hjDLkYwK0sO9YEchouVx-TnQf4hml9ksAdP8GC19zUI/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+    },
+
+    "Lohith": {
+      url: "https://docs.google.com/document/d/1Lg8WAkd0Ax9tF-uvSMVQlYQ-sqUmkN1UEughUInudxY/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+    },
+
+    "Mohanesh": {
+      url: "https://docs.google.com/document/d/1TEyxS-MFDXeEWkw4DhzwuBrH3ij10cDP-4G0J5GpoiE/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+    },
+
+    "Tej": {
+      url: "https://docs.google.com/document/d/1F9r2RVg7sOIPk0m6IW030uoYjNHlzJjcpUTamQuEyQ0/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+    },
+
+    "Ojas": {
+      url: "https://docs.google.com/document/d/18zbRzOceWe8egLa7liMoo754zV56kssEe5dbnPNNilc/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+    },
+
+    "Param": {
+      url: "https://docs.google.com/document/d/1dMdMXoKcDxCssbRnSlV7sVlLi16bx1hYmF2HUcaUqyY/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+    },
+
+    "Arav": {
+      url: "https://docs.google.com/document/d/1MleQWcxl0PjEif64hBTEaQ56vCOYynorWtCO9176x6o/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+    },
+
+    "Kevin": {
+      url: "https://docs.google.com/document/d/1F-KWHzeqr5JIBy6CCDZO9uMR8siQiVINvB9eaGJSYW4/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+    }
+  };
+
+  const $ = id => document.getElementById(id);
+
+  function showScreen(screenId) {
+    document.querySelectorAll(".screen").forEach(screen => {
+      screen.classList.toggle("active", screen.id === screenId);
+    });
+  }
+
+  function getSavedStudent() {
+    try {
+      const savedName = localStorage.getItem(STORAGE_KEY);
+
+      return savedName && students[savedName]
+        ? savedName
+        : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function saveStudent(name) {
+    try {
+      localStorage.setItem(STORAGE_KEY, name);
+    } catch {
+      // The page can still work if browser storage is unavailable.
+    }
+  }
+
+  function openStudentDocument(name) {
+    const student = students[name];
+
+    if (!student) return;
+
+    // Open a blank tab during the user's click to reduce popup blocking.
+    const destinationTab = window.open("about:blank", "_blank");
+
+    $("welcomeMessage").textContent = "Welcome, " + name + "!";
+    showScreen("welcomeScreen");
+
+    // Wait 3 seconds before navigating to the student's document.
+    window.setTimeout(() => {
+      if (destinationTab && !destinationTab.closed) {
+        destinationTab.location.href = student.url;
+      } else {
+        window.location.href = student.url;
+      }
+    }, 3000);
+  }
+
+  function buildNamePicker() {
+    const list = $("nameList");
+    list.innerHTML = "";
+
+    Object.keys(students).forEach(name => {
+      const button = document.createElement("button");
+
+      button.className = "name-button";
+      button.type = "button";
+      button.textContent = name;
+
+      button.addEventListener("click", () => {
+        saveStudent(name);
+        openStudentDocument(name);
+      });
+
+      list.appendChild(button);
+    });
+  }
+
+  $("openButton").addEventListener("click", () => {
+    const savedName = getSavedStudent();
+
+    if (savedName) {
+      openStudentDocument(savedName);
+    } else {
+      showScreen("pickerScreen");
+    }
+  });
+
+  $("backButton").addEventListener("click", () => {
+    showScreen("homeScreen");
+  });
+
+  buildNamePicker();
+})();
+</script>
+</body>
+</html>
