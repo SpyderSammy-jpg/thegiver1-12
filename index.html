@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Giver Chapters 1-12: Your Copy</title>
+<title>The Giver Full Novel Exam: Your Copy</title>
 
 <style>
   * {
@@ -143,14 +143,14 @@
 <div class="container">
 
   <section id="homeScreen" class="screen active">
-    <h1>The Giver Chapters 1-12</h1>
+    <h1>The Giver Full Novel Exam</h1>
 
     <p class="description">
-      Your personal copy of The Giver study notes.
+      Your personal copy of The Giver full novel study notes.
     </p>
 
     <button class="red-button" id="openButton">
-      The Giver Chapters 1-12: Your Copy
+      The Giver Full Novel Exam: Your Copy
     </button>
 
     <p class="small-text">
@@ -179,7 +179,7 @@
     </div>
 
     <p class="exam-message">
-      Good luck on The Giver Chapters 1-12 Exam!
+      Good luck on The Giver Full Novel Exam!
     </p>
 
     <p class="description">
@@ -193,47 +193,44 @@
 (() => {
   "use strict";
 
-  const STORAGE_KEY = "theGiverChapters1to12ChosenCopy_v1";
+  // Separate storage key for the Full Novel Exam version.
+  const STORAGE_KEY = "theGiverFullNovelExamChosenCopy_v1";
 
   const students = {
     "Sharvesh": {
-      url: "https://docs.google.com/document/d/11cJ6L2Gf40ibp6DmFZvf-2MpuFujn9Dt-Om8EwAkwg0/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+      url: "https://docs.google.com/document/d/1HwV_Hn8p6IG0ddtElD9j9fRMd-6tlfp4qVO_WWGD6-g/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
     },
 
     "Tanuj": {
-      url: "https://docs.google.com/document/d/1AgUO3sRIUqt6OptDU8qDHBwrbplLZPrK9ba2p_WIwAU/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
-    },
-
-    "Arooban": {
-      url: "https://docs.google.com/document/d/1hjDLkYwK0sO9YEchouVx-TnQf4hml9ksAdP8GC19zUI/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
-    },
-
-    "Lohith": {
-      url: "https://docs.google.com/document/d/1Lg8WAkd0Ax9tF-uvSMVQlYQ-sqUmkN1UEughUInudxY/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+      url: "https://docs.google.com/document/d/1dVYeO1nfTQExqx_kyDiIxlyNqI0O9D2mktUNKIRDyic/edit?tab=t.2j3v9uv1bk3s#heading=h.hxmq34q0jp1s"
     },
 
     "Mohanesh": {
-      url: "https://docs.google.com/document/d/1TEyxS-MFDXeEWkw4DhzwuBrH3ij10cDP-4G0J5GpoiE/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
-    },
-
-    "Tej": {
-      url: "https://docs.google.com/document/d/1F9r2RVg7sOIPk0m6IW030uoYjNHlzJjcpUTamQuEyQ0/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
-    },
-
-    "Ojas": {
-      url: "https://docs.google.com/document/d/18zbRzOceWe8egLa7liMoo754zV56kssEe5dbnPNNilc/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
-    },
-
-    "Param": {
-      url: "https://docs.google.com/document/d/1dMdMXoKcDxCssbRnSlV7sVlLi16bx1hYmF2HUcaUqyY/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
-    },
-
-    "Arav": {
-      url: "https://docs.google.com/document/d/1MleQWcxl0PjEif64hBTEaQ56vCOYynorWtCO9176x6o/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+      url: "https://docs.google.com/document/d/1qU1nxOX4W19x3NqKjhfBBJ1ZPRNnbe-vilMFGvffX9o/edit?tab=t.2j3v9uv1bk3s"
     },
 
     "Kevin": {
-      url: "https://docs.google.com/document/d/1F-KWHzeqr5JIBy6CCDZO9uMR8siQiVINvB9eaGJSYW4/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+      url: "https://docs.google.com/document/d/19o_v-GPRaK4MwSAZJ6pFjGg452XNNM3WmAYEdOZOUi0/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+    },
+
+    "Arav": {
+      url: "https://docs.google.com/document/d/1pEgrJgAaSqCHVW1u4RKGA4bpabuzuyzhYER9WeZe3ds/edit?tab=t.2j3v9uv1bk3s"
+    },
+
+    "Tej": {
+      url: "https://docs.google.com/document/d/1W_6DVw3Bi0rdvE4fhhjxNGqfnWaQMJBb3mFIlHn_IAA/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+    },
+
+    "Ojas": {
+      url: "https://docs.google.com/document/d/1-x9_CraUEhKY5NjQFzgcCuZbX5CAOBoWp032CVldQfY/edit?tab=t.2j3v9uv1bk3s"
+    },
+
+    "Arooban": {
+      url: "https://docs.google.com/document/d/1v1yK3Ox4lOvAsiP_mt3zYe9x8SXDYEgdI7ltR-OYurg/edit?tab=t.2j3v9uv1bk3s#heading=h.8bkyve5sdshv"
+    },
+
+    "Lohith": {
+      url: "https://docs.google.com/document/d/1iGgohrCNXvmPQ0ZDlN5mx1JQD-S9Mr2HkhTfMk7dg5Q/edit?tab=t.2j3v9uv1bk3s"
     }
   };
 
@@ -241,7 +238,10 @@
 
   function showScreen(screenId) {
     document.querySelectorAll(".screen").forEach(screen => {
-      screen.classList.toggle("active", screen.id === screenId);
+      screen.classList.toggle(
+        "active",
+        screen.id === screenId
+      );
     });
   }
 
@@ -261,7 +261,7 @@
     try {
       localStorage.setItem(STORAGE_KEY, name);
     } catch {
-      // The page can still work if browser storage is unavailable.
+      // The page can still work without browser storage.
     }
   }
 
@@ -270,13 +270,14 @@
 
     if (!student) return;
 
-    // Open a blank tab during the user's click to reduce popup blocking.
+    // Open a blank tab immediately to reduce popup blocking.
     const destinationTab = window.open("about:blank", "_blank");
 
+    // Display the personalized welcome screen.
     $("welcomeMessage").textContent = "Welcome, " + name + "!";
     showScreen("welcomeScreen");
 
-    // Wait 3 seconds before navigating to the student's document.
+    // Wait 3 seconds before opening the document.
     window.setTimeout(() => {
       if (destinationTab && !destinationTab.closed) {
         destinationTab.location.href = student.url;
@@ -321,7 +322,9 @@
   });
 
   buildNamePicker();
+
 })();
 </script>
+
 </body>
 </html>
